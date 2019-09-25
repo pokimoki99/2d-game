@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+
     public int health;
     public int numOfHearts;
 
@@ -12,9 +13,10 @@ public class Health : MonoBehaviour
     public Sprite fullHearts;
     public Sprite emptyHearts;
 
+
     // Start is called before the first frame update
     void Start()
-    { 
+    {
     }
     // Update is called once per frame
     void Update()
@@ -43,6 +45,7 @@ public class Health : MonoBehaviour
                 hearts[i].enabled = false; 
             }
         }
+
     }
 
 } 
