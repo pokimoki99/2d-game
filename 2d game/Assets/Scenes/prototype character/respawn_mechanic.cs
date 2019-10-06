@@ -28,5 +28,6 @@ public class respawn_mechanic : MonoBehaviour
             player.transform.position = spawn;
             playerHealthScript.health -= 1;
         }
+
     }
 }

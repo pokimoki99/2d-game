@@ -10,9 +10,12 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRate = 2f;
     float nextSpawn = 0.0f;
 
+    //public Enemy enemy;
+    public GameObject player;
+
     void Start()
     {
-        
+        enemy = GameObject.FindGameObjectWithTag("enemy");
     }
 
     // Update is called once per frame
@@ -22,8 +25,13 @@ public class EnemySpawner : MonoBehaviour
         {
             nextSpawn = Time.time + spawnRate;
             randY = Random.Range(-0.0f, 0.0f);
-            whereToSpawn = new Vector2(randY, transform.position.y);
+            whereToSpawn = new Vector2(player.transform.position.x+5, transform.position.y);
             Instantiate(enemy, whereToSpawn, Quaternion.identity);
+        }
+
+        if (enemy.transform.position.y <= -6)
+        {
+            Destroy(GameObject.FindWithTag("enemy"));
         }
     }
 }
