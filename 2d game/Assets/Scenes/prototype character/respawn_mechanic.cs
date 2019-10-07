@@ -9,8 +9,9 @@ public class respawn_mechanic : MonoBehaviour
     Vector3 spawn;
 
     public terrain_generator _terrain_generator;
+    public player_move _player_move;
 
-    public Health playerHealthScript;
+    public Health _Health;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +29,13 @@ public class respawn_mechanic : MonoBehaviour
         {
             
             player.transform.position = spawn;
-            playerHealthScript.health -= 1;
+            _Health.health -= 1;
             Destroy(_terrain_generator.tera);
+        }
+        if (_player_move.damage==true)
+        {
+            _Health.health -= 1;
+            _player_move.damage = false;
         }
 
     }

@@ -9,6 +9,7 @@ TagManager:
   - enemy
   - terrain
   - terrain_detecc
+  - mine
   layers:
   - Default
   - TransparentFX

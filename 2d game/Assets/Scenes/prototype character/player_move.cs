@@ -10,6 +10,7 @@ public class player_move : MonoBehaviour
     private float moveX;
 
     public bool switched = false;
+    public bool damage = false;
 
     // Update is called once per frame
     void Update()
@@ -65,6 +66,13 @@ public class player_move : MonoBehaviour
             switched = true;
 
             Debug.Log("I AM SWITCHED");
+        }
+
+        if (other.gameObject.tag.Equals("mine"))
+        {
+            damage = true;
+
+            Debug.Log("I GOT DAMAGED");
         }
     }
 }
