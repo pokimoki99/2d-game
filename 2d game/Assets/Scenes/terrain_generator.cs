@@ -11,6 +11,7 @@ public class terrain_generator : MonoBehaviour
     public GameObject foothold;
     public GameObject detection;
     public GameObject player;
+    public GameObject tera;
 
     public player_move _player_move;
 
@@ -31,23 +32,23 @@ public class terrain_generator : MonoBehaviour
             if (num == 0)
             {
                 whereToSpawn = new Vector2(player.transform.position.x + 9, Ground_big.transform.position.y);
-                Instantiate(Ground_big, whereToSpawn, Quaternion.identity);
+                tera = Instantiate(Ground_big, whereToSpawn, Quaternion.identity);
             }
             if (num == 1)
             {
                 whereToSpawn = new Vector2(player.transform.position.x + 9, Ground_big2.transform.position.y);
-                Instantiate(Ground_big2, whereToSpawn, Quaternion.identity);
+                tera = Instantiate(Ground_big2, whereToSpawn, Quaternion.identity);
             }
             if (num == 2)
             {
 
                 whereToSpawn = new Vector2(player.transform.position.x + 3, Ground_small.transform.position.y);
-                Instantiate(Ground_small, whereToSpawn, Quaternion.identity);
+                tera = Instantiate(Ground_small, whereToSpawn, Quaternion.identity);
             }
             if (num==3)
             {
                 whereToSpawn = new Vector2(player.transform.position.x + 3, foothold.transform.position.y);
-                Instantiate(foothold, whereToSpawn, Quaternion.identity);
+                tera= Instantiate(foothold, whereToSpawn, Quaternion.identity);
             }
             Debug.Log(Ground_big.transform.position.x);
             _player_move.switched = false;

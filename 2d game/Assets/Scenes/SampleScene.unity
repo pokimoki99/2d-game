@@ -504,6 +504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detecc: {fileID: 377033292}
   player: {fileID: 15612289}
+  _terrain_generator: {fileID: 1338380565}
   playerHealthScript: {fileID: 15612295}
 --- !u!61 &377033295
 BoxCollider2D:
@@ -769,6 +770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detecc: {fileID: 505803423}
   player: {fileID: 15612289}
+  _terrain_generator: {fileID: 0}
   playerHealthScript: {fileID: 15612295}
 --- !u!1 &519420028
 GameObject:
@@ -1281,6 +1283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detecc: {fileID: 871497010}
   player: {fileID: 15612289}
+  _terrain_generator: {fileID: 0}
   playerHealthScript: {fileID: 15612295}
 --- !u!61 &871497013
 BoxCollider2D:
@@ -1609,6 +1612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detecc: {fileID: 1198591890}
   player: {fileID: 15612289}
+  _terrain_generator: {fileID: 0}
   playerHealthScript: {fileID: 15612295}
 --- !u!61 &1198591893
 BoxCollider2D:
@@ -1942,6 +1946,7 @@ MonoBehaviour:
   foothold: {fileID: 975865579}
   detection: {fileID: 505803423}
   player: {fileID: 15612289}
+  tera: {fileID: 0}
   _player_move: {fileID: 15612291}
 --- !u!1 &1520258497
 GameObject:
