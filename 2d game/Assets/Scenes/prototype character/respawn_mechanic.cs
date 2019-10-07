@@ -22,7 +22,7 @@ public class respawn_mechanic : MonoBehaviour
     void Update()
     {
         //GetComponent("Health.cs");
-        if (player.transform.position.y < detecc.transform.position.y)
+        if (player.transform.position.y < -6)
         {
             
             player.transform.position = spawn;

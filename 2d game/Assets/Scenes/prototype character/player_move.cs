@@ -9,6 +9,8 @@ public class player_move : MonoBehaviour
     public int PlayerJumpPower = 1250;
     private float moveX;
 
+    public bool switched = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -56,4 +58,13 @@ public class player_move : MonoBehaviour
         transform.localScale = localScale;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name.Equals("Detecc"))
+        {
+            switched = true;
+
+            Debug.Log("I AM SWITCHED");
+        }
+    }
 }

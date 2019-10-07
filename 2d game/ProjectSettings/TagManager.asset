@@ -7,6 +7,8 @@ TagManager:
   - player
   - obstacles
   - enemy
+  - terrain
+  - terrain_detecc
   layers:
   - Default
   - TransparentFX
