@@ -50,7 +50,7 @@ public class terrain_generator : MonoBehaviour
                 whereToSpawn = new Vector2(player.transform.position.x + 3, foothold.transform.position.y);
                 tera= Instantiate(foothold, whereToSpawn, Quaternion.identity);
             }
-            Debug.Log(Ground_big.transform.position.x);
+            Debug.Log("new platform");
             _player_move.switched = false;
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ public class respawn_mechanic : MonoBehaviour
     public player_move _player_move;
 
     public Health _Health;
+
+    public event EventHandler OnHealthLoss;
 
     // Start is called before the first frame update
     void Start()
@@ -30,13 +33,20 @@ public class respawn_mechanic : MonoBehaviour
             
             player.transform.position = spawn;
             _Health.health -= 1;
+            CallHealthLoss();
             Destroy(_terrain_generator.tera);
         }
         if (_player_move.damage==true)
         {
             _Health.health -= 1;
+            CallHealthLoss();
             _player_move.damage = false;
         }
 
+    }
+
+    void CallHealthLoss()
+    {
+        OnHealthLoss?.Invoke(this, EventArgs.Empty);
     }
 }
