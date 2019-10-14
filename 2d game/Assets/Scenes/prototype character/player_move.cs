@@ -41,6 +41,7 @@ public class player_move : MonoBehaviour
     void Update()
     {
         PlayerMove();
+        RunCharacter(1000.0f);
         //int i = 0;
         ////loop over every touch found
         //while (i < Input.touchCount)
@@ -67,7 +68,7 @@ public class player_move : MonoBehaviour
             debugText.text += "I see a touch!\n";
             //if (touch.phase == TouchPhase.Began)
             {
-                RunCharacter(1000.0f);
+                //RunCharacter(1000.0f);
                 Debug.Log("touch");
                 debugText.text += "Last touch was in the began phase\n";
             }
