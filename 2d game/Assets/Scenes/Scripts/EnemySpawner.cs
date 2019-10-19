@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
             enemies = Instantiate(enemy, whereToSpawn, Quaternion.identity);
         }
 
-        if (enemies.transform.position.y <= -6)
+        if (enemies.transform.position.y <= -100)
         {
             Destroy(this);
         }

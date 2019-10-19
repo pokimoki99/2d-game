@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     {
         transform.Translate(Vector2.left * enemyspeed * Time.deltaTime);
 
-        if (enemy.transform.position.y <= -6)
+        if (enemy.transform.position.y <= -100)
         {
             Destroy(GameObject.FindWithTag("enemy"));
         }
