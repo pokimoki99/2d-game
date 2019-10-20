@@ -39,27 +39,6 @@ public class Health : MonoBehaviour
             health = numOfHearts;
         }
        
-        //for (int i = 0; i < hearts.Length; i++)
-        //{
-        //    if (i < health)
-        //    {
-        //        hearts[i].sprite = fullHearts;
-        //       // hearts[i].Destroy(false);
-        //    }
-        //    else
-        //    {
-        //        hearts[i].sprite = emptyHearts;
-        //        //hearts[i].Destroy(true);
-        //    }
-        //    if(i < numOfHearts)
-        //    {
-        //        hearts[i].enabled = true;
-        //    }
-        //    else
-        //    {
-        //        hearts[i].enabled = false; 
-        //    }
-        //}
 
     }
 

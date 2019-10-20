@@ -8,7 +8,7 @@ public class terrain_generator : MonoBehaviour
     public GameObject Ground_big;
     public GameObject Ground_big2;
     public GameObject Ground_small;
-    public GameObject foothold;
+    public GameObject slide_obstacle;
     public GameObject detection;
     public GameObject player;
     public GameObject tera;
@@ -32,23 +32,23 @@ public class terrain_generator : MonoBehaviour
             if (num == 0)
             {
                 whereToSpawn = new Vector2(player.transform.position.x + 9, Ground_big.transform.position.y);
-                tera = Instantiate(Ground_big, whereToSpawn, Quaternion.identity);
+                Instantiate(Ground_big, whereToSpawn, Quaternion.identity);
             }
             if (num == 1)
             {
                 whereToSpawn = new Vector2(player.transform.position.x + 9, Ground_big2.transform.position.y);
-                tera = Instantiate(Ground_big2, whereToSpawn, Quaternion.identity);
+                Instantiate(Ground_big2, whereToSpawn, Quaternion.identity);
             }
             if (num == 2)
             {
 
                 whereToSpawn = new Vector2(player.transform.position.x + 3, Ground_small.transform.position.y);
-                tera = Instantiate(Ground_small, whereToSpawn, Quaternion.identity);
+                Instantiate(Ground_small, whereToSpawn, Quaternion.identity);
             }
             if (num==3)
             {
-                whereToSpawn = new Vector2(player.transform.position.x + 3, foothold.transform.position.y);
-                tera= Instantiate(foothold, whereToSpawn, Quaternion.identity);
+                whereToSpawn = new Vector2(player.transform.position.x + 3, slide_obstacle.transform.position.y);
+                Instantiate(slide_obstacle, whereToSpawn, Quaternion.identity);
             }
             Debug.Log("new platform");
             _player_move.switched = false;

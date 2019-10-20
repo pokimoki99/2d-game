@@ -30,14 +30,15 @@ public class respawn_mechanic : MonoBehaviour
         //GetComponent("Health.cs");
         if (player.transform.position.y < -6)
         {
-            
+            destroyTerrain();
             player.transform.position = spawn;
             _Health.health -= 1;
             CallHealthLoss();
-            Destroy(_terrain_generator.tera);
+
         }
         if (_player_move.damage==true)
         {
+            Destroy(GameObject.Find("Enemy(Clone)"));
             _Health.health -= 1;
             CallHealthLoss();
             _player_move.damage = false;
@@ -48,5 +49,13 @@ public class respawn_mechanic : MonoBehaviour
     void CallHealthLoss()
     {
         OnHealthLoss?.Invoke(this, EventArgs.Empty);
+    }
+    void destroyTerrain()
+    {
+        Destroy(GameObject.Find("Ground_big(Clone)"));
+        Destroy(GameObject.Find("Ground_big2(Clone)"));
+        Destroy(GameObject.Find("Ground_small(Clone)"));
+        Destroy(GameObject.Find("Enemy(Clone)"));
+        Destroy(GameObject.Find("slide_obstacles(Clone)"));
     }
 }

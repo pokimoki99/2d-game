@@ -29,7 +29,7 @@ public class player_move : MonoBehaviour
     {
         //move player mobile
         characterBody.AddForce(new Vector2(horizontalInput * playerSpeed * Time.deltaTime, 0));
-        Debug.Log("running");
+        //Debug.Log("running");
     }
 
     public void MovePlayer(float moveAmount)
@@ -42,36 +42,11 @@ public class player_move : MonoBehaviour
     {
         PlayerMove();
         RunCharacter(1000.0f);
-        //int i = 0;
-        ////loop over every touch found
-        //while (i < Input.touchCount)
-        //{
-        //    Touch myTouch = Input.GetTouch(i);
-        //    myTouch.phase = TouchPhase.Began;
-        //    /*if (Input.GetTouch(i).position.x>ScreenWidth/2)
-        //    {
-        //        //move right
-        //        RunCharacter(10.0f);
-        //        PlayerMove();
 
-        //    }*/
-        //    if (myTouch.phase == TouchPhase.Began)
-        //    {
-        //        RunCharacter(10.0f);
-        //        Debug.Log("running");
-        //    }
-        //    ++i;
-        //    Debug.Log("touch");
-        //}
         foreach (Touch touch in Input.touches)
         {
             debugText.text += "I see a touch!\n";
-            //if (touch.phase == TouchPhase.Began)
-            {
-                //RunCharacter(1000.0f);
-                Debug.Log("touch");
-                debugText.text += "Last touch was in the began phase\n";
-            }
+
             Debug.Log("touch");
             if (touch.phase == TouchPhase.Began)
             {
@@ -141,7 +116,13 @@ public class player_move : MonoBehaviour
         if (other.gameObject.tag.Equals("mine"))
         {
             damage = true;
-
+            Destroy(GameObject.Find("Mine(Clone)"));
+            Debug.Log("I GOT DAMAGED");
+        }
+        if (other.gameObject.tag.Equals("enemy"))
+        {
+            damage = true;
+            Destroy(GameObject.Find("enemy(Clone)"));
             Debug.Log("I GOT DAMAGED");
         }
     }
