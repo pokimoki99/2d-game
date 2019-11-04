@@ -18,6 +18,10 @@ public class player_move : MonoBehaviour
     public GameObject player;
     public Text debugText;
 
+    private Vector2 fp;
+    private Vector2 lp;
+    private float dragDistance;
+
 
     void Start()
     {
@@ -42,19 +46,63 @@ public class player_move : MonoBehaviour
     {
         PlayerMove();
         RunCharacter(1000.0f);
-
-        foreach (Touch touch in Input.touches)
+        if (Input.touchCount==1)
         {
-            debugText.text += "I see a touch!\n";
-
-            Debug.Log("touch");
+            Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
-                Jump();
-                Debug.Log("jump");
-                debugText.text += "Last touch was in the began phase\n";
+                fp = touch.position;
+                lp = touch.position;
+            }
+            else if (touch.phase == TouchPhase.Moved)
+            {
+                lp = touch.position;
+            }
+            else if (touch.phase==TouchPhase.Ended)
+            {
+                lp = touch.position;
+
+                if (Mathf.Abs(lp.x - fp.x) > dragDistance || Mathf.Abs(lp.y - fp.y) > dragDistance)
+                {
+                    if (lp.x > fp.x)
+                    {
+                        Debug.Log("right swipe");
+                    }
+                    else
+                    {
+                        Debug.Log("left swipe");
+                    }
+                }
+                else
+                {
+                    if (lp.y>fp.y)
+                    {
+                        Debug.Log("up swipe");
+                    }
+                    else
+                    {
+                        Debug.Log("Down swipe");
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("tap");
             }
         }
+
+        //foreach (Touch touch in Input.touches)
+        //{
+        //    debugText.text += "I see a touch!\n";
+
+        //    Debug.Log("touch");
+        //    if (touch.phase == TouchPhase.Began)
+        //    {
+        //        Jump();
+        //        Debug.Log("jump");
+        //        debugText.text += "Last touch was in the began phase\n";
+        //    }
+        //}
     }
     private void FixedUpdate()
     {
