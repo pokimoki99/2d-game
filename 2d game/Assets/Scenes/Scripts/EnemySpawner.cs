@@ -5,15 +5,15 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
-    public GameObject mine;
+    //public GameObject mine;
     public GameObject enemies;
-    public GameObject slide_obstacle;
+    //public GameObject slide_obstacle;
     float randY;
     Vector2 whereToSpawn;
     public float spawnRate = 2f;
     float nextSpawn = 0.0f;
     int num;
-    int num1;
+    //int num1;
 
     
     //public Enemy enemy;
@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         enemy = GameObject.FindGameObjectWithTag("enemy");
-        mine = GameObject.FindGameObjectWithTag("mine");
+        //mine = GameObject.FindGameObjectWithTag("mine");
     }
 
     // Update is called once per frame
@@ -39,17 +39,17 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(enemy, whereToSpawn, Quaternion.identity);
 
             }
-            if (num==1)
-            {
-                whereToSpawn = new Vector2(player.transform.position.x + 5, transform.position.y-0.5f);
-                Instantiate(mine, whereToSpawn, Quaternion.identity);
-            }
-            Random_pos1();
-            if (num1 == 0)
-            {
-                whereToSpawn = new Vector3(player.transform.position.x + 15, slide_obstacle.transform.position.y - 3.15f, slide_obstacle.transform.position.z + 13.0f);
-                Instantiate(slide_obstacle, whereToSpawn, Quaternion.identity);
-            }
+            //if (num==1)
+            //{
+            //    whereToSpawn = new Vector2(player.transform.position.x + 5, transform.position.y-0.5f);
+            //    Instantiate(mine, whereToSpawn, Quaternion.identity);
+            //}
+            //Random_pos1();
+            //if (num1 == 0)
+            //{
+            //    whereToSpawn = new Vector3(player.transform.position.x + 15, slide_obstacle.transform.position.y - 3.15f, slide_obstacle.transform.position.z + 13.0f);
+            //    Instantiate(slide_obstacle, whereToSpawn, Quaternion.identity);
+            //}
         }
 
 
@@ -67,9 +67,9 @@ public class EnemySpawner : MonoBehaviour
         num = (Random.Range(0, 2));
         Debug.Log(num);
     }
-    void Random_pos1()
-    {
-        num1 = (Random.Range(0, 2));
-        Debug.Log(num1);
-    }
+    //void Random_pos1()
+    //{
+    //    num1 = (Random.Range(0, 2));
+    //    Debug.Log(num1);
+    //}
 }

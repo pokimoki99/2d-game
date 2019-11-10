@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
 
     private void Respawn_Mechanic_OnHealthLoss(object sender, System.EventArgs e)
     {
-        healthHeart.sprite = hearts[health - 1];
+        //healthHeart.sprite = hearts[health - 1];
     }
 
     // Update is called once per frame
