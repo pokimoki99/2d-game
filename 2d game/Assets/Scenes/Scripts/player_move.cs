@@ -16,17 +16,20 @@ public class player_move : MonoBehaviour
     private Rigidbody2D characterBody;
     private float ScreenWidth;
     public GameObject player;
+    public GameObject tank;
     public Text debugText;
 
     private Vector2 fp;
     private Vector2 lp;
     private float dragDistance;
+    float timer=30.0f;
 
 
     void Start()
     {
         ScreenWidth = Screen.width;
-        characterBody = player.GetComponent<Rigidbody2D>();
+        characterBody = GetComponent<Rigidbody2D>();
+        tank.SetActive(false);
     }
 
     private void RunCharacter(float horizontalInput)
@@ -123,14 +126,14 @@ public class player_move : MonoBehaviour
 
 
         //player direction
-        if (moveX < 0.0f && facingRight == false)
-        {
-            FlipPlayer();
-        }
-        else if (moveX > 0.0f && facingRight == true)
-        {
-            FlipPlayer();
-        }
+        //if (moveX < 0.0f && facingRight == false)
+        //{
+        //    FlipPlayer();
+        //}
+        //else if (moveX > 0.0f && facingRight == true)
+        //{
+        //    FlipPlayer();
+        //}
         //physics
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
 
@@ -160,6 +163,14 @@ public class player_move : MonoBehaviour
 
             Debug.Log("I AM SWITCHED");
         }
+        if (other.gameObject.name.Equals("Tank_power_up"))
+        {
+            timer = 10;
+            player.SetActive(false);
+            tank.SetActive(true);
+            Debug.Log("collide with player");
+        }
+
 
         if (other.gameObject.tag.Equals("mine"))
         {
@@ -173,5 +184,17 @@ public class player_move : MonoBehaviour
             Destroy(GameObject.Find("enemy(Clone)"));
             Debug.Log("I GOT DAMAGED");
         }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        timer -= Time.deltaTime;
+        if (timer < 0)
+        {
+            player.SetActive(true);
+            tank.SetActive(false);
+            Debug.Log("collide with player");
+            Debug.Log(timer);
+        }
+        
     }
 }
