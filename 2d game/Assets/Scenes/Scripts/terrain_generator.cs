@@ -57,7 +57,7 @@ public class terrain_generator : MonoBehaviour
                 if (num == 2)
                 {
 
-                    whereToSpawn = new Vector2(player.transform.position.x - 3, Ground_small_easy.transform.position.y);
+                    whereToSpawn = new Vector2(player.transform.position.x - 14, Ground_small_easy.transform.position.y);
                     Instantiate(Ground_small_easy, whereToSpawn, Quaternion.identity);
                 }
             }
@@ -77,7 +77,7 @@ public class terrain_generator : MonoBehaviour
                 if (num == 2)
                 {
 
-                    whereToSpawn = new Vector2(player.transform.position.x - 3, Ground_small_medium.transform.position.y);
+                    whereToSpawn = new Vector2(player.transform.position.x - 14, Ground_small_medium.transform.position.y);
                     Instantiate(Ground_small_medium, whereToSpawn, Quaternion.identity);
                 }
             }
