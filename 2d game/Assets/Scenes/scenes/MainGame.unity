@@ -982,7 +982,7 @@ PrefabInstance:
     - target: {fileID: 3521578560658153056, guid: 1c8d94cbb894f5443a37ddab5b2dcd70,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.67
+      value: 1.38
       objectReference: {fileID: 0}
     - target: {fileID: 3521578560658153056, guid: 1c8d94cbb894f5443a37ddab5b2dcd70,
         type: 3}
@@ -2371,7 +2371,6 @@ MonoBehaviour:
   damage: 0
   player: {fileID: 113178589}
   tank: {fileID: 2044058410}
-  debugText: {fileID: 0}
 --- !u!50 &929270709
 Rigidbody2D:
   serializedVersion: 4
