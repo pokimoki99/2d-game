@@ -36,7 +36,7 @@ public class respawn_mechanic : MonoBehaviour
             CallHealthLoss();
 
         }
-        if (_player_move.damage==true)
+        if (_player_move.damage == true)
         {
             Destroy(GameObject.Find("Enemy(Clone)"));
             _Health.health -= 1;

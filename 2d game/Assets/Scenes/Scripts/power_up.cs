@@ -22,10 +22,11 @@ public class power_up : MonoBehaviour
     {
         if (other.gameObject.name.Equals("player"))
         {
-            GameObject.Find("tank").renderer.enabled = true;
-            GameObject.Find("player").renderer.enabled = false;
+            GameObject.Find("tank").GetComponent<Renderer>().enabled = true;
+            GameObject.Find("player").GetComponent<Renderer>().enabled = false;
             Debug.Log("collide with player");
         }
+        Debug.Log("collision");
     }
     private void OnTriggerExit2D(Collider2D other)
     {
