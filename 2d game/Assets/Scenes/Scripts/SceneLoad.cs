@@ -9,11 +9,6 @@ public class SceneLoad : MonoBehaviour
     {
         SceneManager.LoadScene(SceneIndex);
     }
-    public void ExitLoader()
-    {
-        Debug.Log("Game exit is pressed");
-        Application.Quit();
 
-    }
 
 }

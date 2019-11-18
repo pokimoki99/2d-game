@@ -22,8 +22,8 @@ public class power_up : MonoBehaviour
     {
         if (other.gameObject.name.Equals("player"))
         {
-            //GameObject.Find("tank").renderer.enabled = true;
-            //GameObject.Find("player").renderer.enabled = false;
+            GameObject.Find("tank").renderer.enabled = true;
+            GameObject.Find("player").renderer.enabled = false;
             Debug.Log("collide with player");
         }
     }
