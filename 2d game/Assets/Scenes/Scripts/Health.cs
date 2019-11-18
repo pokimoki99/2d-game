@@ -33,6 +33,7 @@ public class Health : MonoBehaviour
     private void Respawn_Mechanic_OnHealthGain(object sender, System.EventArgs e)
     {
         //healthHeart.sprite = hearts[health + 1];
+        Debug.Log("healed");
     }
     // Update is called once per frame
     void Update()

@@ -11,6 +11,7 @@ TagManager:
   - terrain_detecc
   - mine
   - Bullet
+  - HP_powerup
   layers:
   - Default
   - TransparentFX
