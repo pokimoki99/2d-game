@@ -11,9 +11,7 @@ public class SceneLoad : MonoBehaviour
     }
     public void ExitLoader()
     {
-        Debug.Log("Game exit is pressed");
         Application.Quit();
-
     }
 
 }
