@@ -12,6 +12,7 @@ public class player_move : MonoBehaviour
 
     public bool switched = false;
     public bool damage = false;
+    public bool heal = false;
 
     private Rigidbody2D characterBody;
     private float ScreenWidth;
@@ -183,6 +184,13 @@ public class player_move : MonoBehaviour
             damage = true;
             Destroy(GameObject.Find("enemy(Clone)"));
             Debug.Log("I GOT DAMAGED");
+        }
+
+        if (other.gameObject.tag.Equals("HP_powerup"))
+        {
+            heal = true;
+            Destroy(other);
+            Debug.Log("I GOT healed");
         }
     }
     private void OnTriggerExit2D(Collider2D other)

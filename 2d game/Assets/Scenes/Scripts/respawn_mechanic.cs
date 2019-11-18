@@ -15,6 +15,7 @@ public class respawn_mechanic : MonoBehaviour
     public Health _Health;
 
     public event EventHandler OnHealthLoss;
+    public event EventHandler OnHealthGain;
 
     // Start is called before the first frame update
     void Start()
@@ -43,12 +44,22 @@ public class respawn_mechanic : MonoBehaviour
             CallHealthLoss();
             _player_move.damage = false;
         }
+        if (_player_move.heal == true)
+        {
+            _Health.health += 1;
+            CallHealthGain();
+            _player_move.damage = false;
+        }
 
     }
 
     void CallHealthLoss()
     {
         OnHealthLoss?.Invoke(this, EventArgs.Empty);
+    }
+    void CallHealthGain()
+    {
+        OnHealthGain?.Invoke(this, EventArgs.Empty);
     }
     void destroyTerrain()
     {

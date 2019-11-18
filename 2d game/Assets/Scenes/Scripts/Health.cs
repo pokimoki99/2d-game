@@ -22,6 +22,7 @@ public class Health : MonoBehaviour
         foreach (respawn_mechanic item in FindObjectsOfType<respawn_mechanic>())
         {
             item.OnHealthLoss += Respawn_Mechanic_OnHealthLoss;
+            item.OnHealthGain += Respawn_Mechanic_OnHealthGain;
         }
     }
 
@@ -29,7 +30,10 @@ public class Health : MonoBehaviour
     {
         //healthHeart.sprite = hearts[health - 1];
     }
-
+    private void Respawn_Mechanic_OnHealthGain(object sender, System.EventArgs e)
+    {
+        //healthHeart.sprite = hearts[health + 1];
+    }
     // Update is called once per frame
     void Update()
     {
