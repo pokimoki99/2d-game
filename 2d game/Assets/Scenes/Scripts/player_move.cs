@@ -189,7 +189,7 @@ public class player_move : MonoBehaviour
         if (other.gameObject.tag.Equals("HP_powerup"))
         {
             heal = true;
-            Destroy(other);
+            Destroy(GameObject.Find("life"));
             Debug.Log("I GOT healed");
         }
     }
