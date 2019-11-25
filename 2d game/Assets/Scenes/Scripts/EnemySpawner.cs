@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
             Random_pos();
             if (num == 0)
             {
-                whereToSpawn = new Vector2(player.transform.position.x + 5, transform.position.y);
+                whereToSpawn = new Vector2(player.transform.position.x - 11, transform.position.y);
                 Instantiate(enemy, whereToSpawn, Quaternion.identity);
 
             }

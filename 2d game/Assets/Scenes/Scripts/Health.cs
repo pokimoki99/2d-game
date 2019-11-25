@@ -28,17 +28,16 @@ public class Health : MonoBehaviour
 
     private void Respawn_Mechanic_OnHealthLoss(object sender, System.EventArgs e)
     {
-        //healthHeart.sprite = hearts[health - 1];
+        healthHeart.sprite = hearts[health];
     }
     private void Respawn_Mechanic_OnHealthGain(object sender, System.EventArgs e)
     {
-        //healthHeart.sprite = hearts[health + 1];
+        healthHeart.sprite = hearts[health];
         Debug.Log("healed");
     }
     // Update is called once per frame
     void Update()
     {
-
         if (health > numOfHearts)
         {
             health = numOfHearts;
