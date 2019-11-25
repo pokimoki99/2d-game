@@ -46,8 +46,7 @@ public class respawn_mechanic : MonoBehaviour
         }
         if (_player_move.heal == true)
         {
-            _ = _player_move.heal == false;
-
+            _player_move.heal = _player_move.heal == false;
             if (_Health.health>=5)
                 {
                 
