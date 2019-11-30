@@ -5,25 +5,37 @@ using UnityEngine.UI;
 
 public class player_move : MonoBehaviour
 {
+    //movement
     public int playerSpeed = 10;
     private bool facingRight;
     public int PlayerJumpPower = 1250;
     private float moveX;
 
+    //switches
     public bool switched = false;
     public bool damage = false;
     public bool heal = false;
 
+    //objects
     private Rigidbody2D characterBody;
     private float ScreenWidth;
     public GameObject player;
     public GameObject tank;
     //public Text debugText;
 
+    //touch mechanic
     private Vector2 fp;
     private Vector2 lp;
     private float dragDistance;
     float timer = 30.0f;
+
+    //sliding mechanic
+    bool sliding = false;
+    float slideTimer = 0f;
+    public float maxSlideTime = 1.5f;
+    [SerializeField]
+    GameObject healthCollider;
+    public Animator anim;
 
 
     void Start()
@@ -123,23 +135,32 @@ public class player_move : MonoBehaviour
         {
             Jump();
         }
-        //animations
 
-
-        //player direction
-        //if (moveX < 0.0f && facingRight == false)
-        //{
-        //    FlipPlayer();
-        //}
-        //else if (moveX > 0.0f && facingRight == true)
-        //{
-        //    FlipPlayer();
-        //}
-        //physics
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
 
+        if (Input.GetButtonDown("Slide") & !sliding)
+        {
+            slideTimer = 0f;
 
+            anim.SetBool("isSliding", true);
+            //gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+            healthCollider.GetComponent<CapsuleCollider2D>().enabled = false;
+            sliding = true;
+        }
+        if (sliding)
+        {
+            slideTimer += Time.deltaTime;
+            if (slideTimer>maxSlideTime)
+            {
+                sliding = false;
+
+                anim.SetBool("isSliding", false);
+                //gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
+                healthCollider.GetComponent<CapsuleCollider2D>().enabled = true;
+            }
+        }
     }
+
 
     void Jump()
     {
