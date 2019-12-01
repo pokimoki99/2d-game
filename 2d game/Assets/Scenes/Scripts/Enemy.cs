@@ -22,11 +22,21 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.left * enemyspeed * Time.deltaTime);
-
         if (enemy.transform.position.y <= -100)
         {
             Destroy(GameObject.FindWithTag("enemy"));
         }
 
     }
+    void OnCollionEnter(Collision2D col)
+    {
+        if (col.gameObject.tag.Equals("Bullet"))
+        {
+            Destroy(GameObject.FindWithTag("enemy"));
+            Destroy(col.gameObject);
+            
+        }
+        
+    }
+
 }
