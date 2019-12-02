@@ -51,7 +51,7 @@ public class Inspirational_system : MonoBehaviour
         }
         if (num==5)
         {
-            inspiration.text = "Continue, or be send to the GULAG";
+            inspiration.text = "Continue, or be sent to the GULAG";
            
             Random_pos();
             QuoteTimer = 0;

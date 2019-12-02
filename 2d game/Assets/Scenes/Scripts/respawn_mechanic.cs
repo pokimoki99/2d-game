@@ -39,6 +39,7 @@ public class respawn_mechanic : MonoBehaviour
         }
         if (_player_move.damage == true)
         {
+            destroyTerrain();
             Destroy(GameObject.Find("Enemy(Clone)"));
             _Health.health -= 1;
             CallHealthLoss();
@@ -78,5 +79,6 @@ public class respawn_mechanic : MonoBehaviour
         Destroy(GameObject.Find("Ground_small(Clone)"));
         Destroy(GameObject.Find("Enemy(Clone)"));
         Destroy(GameObject.Find("slide_obstacles(Clone)"));
+        Destroy(GameObject.FindWithTag("terrain"));
     }
 }
