@@ -21,12 +21,13 @@ public class player_move : MonoBehaviour
     private float ScreenWidth;
     public GameObject player;
     public GameObject tank;
-    //public Text debugText;
+    public Text debugText;
 
     //touch mechanic
     private Vector2 fp;
     private Vector2 lp;
-    private float dragDistance;
+    private float dragDistanceH;
+    private float dragDistanceD;
     float timer = 30.0f;
 
     //sliding mechanic
@@ -37,12 +38,17 @@ public class player_move : MonoBehaviour
     GameObject healthCollider;
     public Animator anim;
 
+    //shooting
+    Shooting shoot;
+
 
     void Start()
     {
         ScreenWidth = Screen.width;
         characterBody = GetComponent<Rigidbody2D>();
         tank.SetActive(false);
+        dragDistanceH = Screen.height * 10 / 100; //dragDistance is 15% height of the screen
+        dragDistanceD = Screen.width * 10 / 100; //dragDistance is 15% height of the screen
     }
 
     private void RunCharacter(float horizontalInput)
@@ -62,6 +68,7 @@ public class player_move : MonoBehaviour
     {
         PlayerMove();
         RunCharacter(1000.0f);
+
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -78,45 +85,58 @@ public class player_move : MonoBehaviour
             {
                 lp = touch.position;
 
-                if (Mathf.Abs(lp.x - fp.x) > dragDistance || Mathf.Abs(lp.y - fp.y) > dragDistance)
+                if (Mathf.Abs(lp.x - fp.x) > dragDistanceD || Mathf.Abs(lp.y - fp.y) > dragDistanceH)
                 {
                     if (lp.x > fp.x)
                     {
+                        debugText.text += "right swipe\n";
                         Debug.Log("right swipe");
+                        shoot.bulletfire();
+                        shoot.fire = true;
                     }
                     else
                     {
                         Debug.Log("left swipe");
+                        debugText.text += "left swipe\n";
                     }
                 }
-                else
+                else if (Mathf.Abs(lp.y - fp.y) > dragDistanceH)
                 {
                     if (lp.y > fp.y)
                     {
+                        debugText.text += "up swipe\n";
                         Debug.Log("up swipe");
                     }
                     else
                     {
+                        slideTimer = 0f;
+
+                        anim.SetBool("isSliding", true);
+                        //gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+                        healthCollider.GetComponent<CapsuleCollider2D>().enabled = false;
+                        sliding = true;
+                        debugText.text += "down swipe\n";
                         Debug.Log("Down swipe");
+                        
                     }
                 }
             }
             else
             {
-                Debug.Log("tap");
+                debugText.text += "tap\n";
+                Jump();
+                Debug.Log("jump");
             }
         }
 
         //foreach (Touch touch in Input.touches)
         //{
-        //    debugText.text += "I see a touch!\n";
 
         //    Debug.Log("touch");
         //    if (touch.phase == TouchPhase.Began)
         //    {
         //        Jump();
         //        Debug.Log("jump");
-        //        debugText.text += "Last touch was in the began phase\n";
         //    }
         //}
     }
@@ -181,6 +201,8 @@ public class player_move : MonoBehaviour
         if (other.gameObject.name.Equals("Detecc"))
         {
             switched = true;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
 
             Debug.Log("I AM SWITCHED");
         }
@@ -223,6 +245,11 @@ public class player_move : MonoBehaviour
             Debug.Log("collide with player");
             Debug.Log(timer);
         }
+        if (other.gameObject.name.Equals("Detecc"))
+        {
+            GameObject.FindWithTag("Respawn").GetComponent<BoxCollider2D>().enabled = true;
+        }
+
 
     }
 }
