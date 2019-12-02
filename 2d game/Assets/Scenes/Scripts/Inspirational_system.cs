@@ -51,7 +51,7 @@ public class Inspirational_system : MonoBehaviour
         }
         if (num==5)
         {
-            inspiration.text = "Continue, or be send to the GULAG";
+            inspiration.text = "Continue, or be sent to the GULAG";
            
             Random_pos();
             QuoteTimer = 0;
@@ -95,6 +95,6 @@ public class Inspirational_system : MonoBehaviour
         {
             num = (Random.Range(0, 10));
         }
-        Debug.Log(QuoteTimer);
+        //Debug.Log(QuoteTimer);
     }
 }
