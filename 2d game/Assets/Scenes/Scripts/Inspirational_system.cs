@@ -95,6 +95,6 @@ public class Inspirational_system : MonoBehaviour
         {
             num = (Random.Range(0, 10));
         }
-        Debug.Log(QuoteTimer);
+        //Debug.Log(QuoteTimer);
     }
 }

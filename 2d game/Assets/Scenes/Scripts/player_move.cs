@@ -138,11 +138,12 @@ public class player_move : MonoBehaviour
 
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
 
-        if (Input.GetButtonDown("Slide") & !sliding)
+        if (Input.GetButtonDown("Slide") && !sliding)
         {
             slideTimer = 0f;
 
-            anim.SetBool("isSliding", true);
+            anim.SetTrigger("isSliding");
+            print("Slide");
             //gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
             healthCollider.GetComponent<CapsuleCollider2D>().enabled = false;
             sliding = true;
@@ -153,8 +154,6 @@ public class player_move : MonoBehaviour
             if (slideTimer>maxSlideTime)
             {
                 sliding = false;
-
-                anim.SetBool("isSliding", false);
                 //gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
                 healthCollider.GetComponent<CapsuleCollider2D>().enabled = true;
             }
