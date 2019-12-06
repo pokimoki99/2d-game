@@ -201,7 +201,7 @@ public class player_move : MonoBehaviour
         if (other.gameObject.name.Equals("Detecc"))
         {
             switched = true;
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            GameObject.FindWithTag("Respawn").GetComponent<BoxCollider2D>().enabled = true;
 
 
             Debug.Log("I AM SWITCHED");

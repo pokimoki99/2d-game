@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        enemy = GameObject.FindGameObjectWithTag("enemy");
+        //enemy = GameObject.FindGameObjectWithTag("enemy");
         //mine = GameObject.FindGameObjectWithTag("mine");
     }
 
@@ -35,21 +35,9 @@ public class EnemySpawner : MonoBehaviour
             Random_pos();
             if (num == 0)
             {
-                whereToSpawn = new Vector2(player.transform.position.x - 11, transform.position.y);
+                whereToSpawn = new Vector2(player.transform.position.x + 5, transform.position.y);
                 Instantiate(enemy, whereToSpawn, Quaternion.identity);
-
             }
-            //if (num==1)
-            //{
-            //    whereToSpawn = new Vector2(player.transform.position.x + 5, transform.position.y-0.5f);
-            //    Instantiate(mine, whereToSpawn, Quaternion.identity);
-            //}
-            //Random_pos1();
-            //if (num1 == 0)
-            //{
-            //    whereToSpawn = new Vector3(player.transform.position.x + 15, slide_obstacle.transform.position.y - 3.15f, slide_obstacle.transform.position.z + 13.0f);
-            //    Instantiate(slide_obstacle, whereToSpawn, Quaternion.identity);
-            //}
         }
 
 
