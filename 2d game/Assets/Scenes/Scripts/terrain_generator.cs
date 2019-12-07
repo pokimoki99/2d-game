@@ -19,6 +19,7 @@ public class terrain_generator : MonoBehaviour
     public player_move _player_move;
     //public Score scoreValue;
 
+    public bool easy, medium, hard;
     Vector2 whereToSpawn;
     int num;
     int hp;
@@ -26,6 +27,9 @@ public class terrain_generator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        easy = false;
+        medium = false;
+        hard = false;
         if (Score.scoreValue == 0)
         {
             whereToSpawn = new Vector3(0.4f, -5.32f, 16.54f);
@@ -46,6 +50,7 @@ public class terrain_generator : MonoBehaviour
 
             if (Score.scoreValue > 0 && Score.scoreValue <= 50)
             {
+                easy = true;
                 Random_pos();
                 if (num == 0)
                 {
@@ -68,9 +73,12 @@ public class terrain_generator : MonoBehaviour
                     whereToSpawn = new Vector2(player.transform.position.x + 14, hp_power_up.transform.position.y);
                     Instantiate(hp_power_up, whereToSpawn, Quaternion.identity);
                 }
+
+
             }
             if (Score.scoreValue > 50 && Score.scoreValue <= 70)
             {
+                medium = true;
                 Random_pos();
                 if (num == 0)
                 {
@@ -84,7 +92,6 @@ public class terrain_generator : MonoBehaviour
                 }
                 if (num == 2)
                 {
-
                     whereToSpawn = new Vector2(player.transform.position.x - 14, Ground_small_medium.transform.position.y- 3.3f);
                     Instantiate(Ground_small_medium, whereToSpawn, Quaternion.identity);
                 }

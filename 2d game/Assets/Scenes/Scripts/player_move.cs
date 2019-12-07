@@ -23,6 +23,9 @@ public class player_move : MonoBehaviour
     public GameObject tank;
     public Text debugText;
 
+    Health hp;
+    Score point;
+
     //touch mechanic
     private Vector2 fp;
     private Vector2 lp;
@@ -40,6 +43,7 @@ public class player_move : MonoBehaviour
 
     //shooting
     Shooting shoot;
+
 
 
     void Start()
@@ -129,16 +133,6 @@ public class player_move : MonoBehaviour
             }
         }
 
-        //foreach (Touch touch in Input.touches)
-        //{
-
-        //    Debug.Log("touch");
-        //    if (touch.phase == TouchPhase.Began)
-        //    {
-        //        Jump();
-        //        Debug.Log("jump");
-        //    }
-        //}
     }
     private void FixedUpdate()
     {
@@ -252,4 +246,21 @@ public class player_move : MonoBehaviour
 
 
     }
+
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this, hp, point);
+    }
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        hp.health = data.health;
+        point.savedata = data.score;
+
+        Vector2 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+
+    }
+
 }
