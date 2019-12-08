@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     //public GameObject mine;
     public GameObject enemies;
     //public GameObject slide_obstacle;
-    public GameObject Luftwaffe; 
+    //public GameObject Luftwaffe; 
     float randY;
     Vector2 whereToSpawn;
     public float spawnRate = 2f;
@@ -40,11 +40,11 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(enemy,  whereToSpawn, Quaternion.identity);
             }
 
-            if(num == 0)
-            {
-                whereToSpawn = new Vector2(player.transform.position.x + 5, transform.position.y);
-                Instantiate(Luftwaffe, whereToSpawn, Quaternion.identity);
-            }
+            //if(num == 0)
+           // {
+               // whereToSpawn = new Vector2(player.transform.position.x + 5, transform.position.y);
+               // Instantiate(Luftwaffe, whereToSpawn, Quaternion.identity);
+            //}
         }
        
             if (enemies.transform.position.y <= -100)
