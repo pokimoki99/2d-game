@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3724499257953471518}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -40.13, y: -1.73, z: 16.544922}
   m_LocalScale: {x: 2.858946, y: 2.044382, z: 1}
   m_Children:
@@ -197,7 +197,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.4224296, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -208,7 +208,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000001}
+  m_Size: {x: 0.15514082, y: 1.0000001}
   m_EdgeRadius: 0
 --- !u!1001 &3724499259958316731
 PrefabInstance:
@@ -287,13 +287,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.31382585
       objectReference: {fileID: 0}
-    - target: {fileID: 7122237649501780276, guid: 9e265155b75d8e24f9b9eb83bd12f197,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7926582437087329862, guid: 9e265155b75d8e24f9b9eb83bd12f197, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e265155b75d8e24f9b9eb83bd12f197, type: 3}
 --- !u!4 &6165609112423218415 stripped
 Transform:

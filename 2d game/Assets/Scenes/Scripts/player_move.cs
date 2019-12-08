@@ -30,19 +30,30 @@ public class player_move : MonoBehaviour
     private Vector2 fp;
     private Vector2 lp;
     private float dragDistanceH;
-    private float dragDistanceD;
+    //private float dragDistanceD;
     float timer = 30.0f;
+    //sliding mechanic
+    bool tapping = false;
+    float tapTimer = 0f;
+    public float maxTaps = 4.0f;
+
+    bool shoots = false;
+    float shootTimer = 0f;
+    public float maxShots = 1.0f;
 
     //sliding mechanic
     bool sliding = false;
     float slideTimer = 0f;
-    public float maxSlideTime = 1.5f;
-    [SerializeField]
-    GameObject healthCollider;
-    public Animator anim;
+    public float maxSlideTime = 1.0f;
 
     //shooting
     Shooting shoot;
+
+    public GameObject healthCollider;
+
+    [SerializeField]
+    public Animator anim;
+
 
 
 
@@ -51,8 +62,8 @@ public class player_move : MonoBehaviour
         ScreenWidth = Screen.width;
         characterBody = GetComponent<Rigidbody2D>();
         tank.SetActive(false);
-        dragDistanceH = Screen.height * 10 / 100; //dragDistance is 15% height of the screen
-        dragDistanceD = Screen.width * 10 / 100; //dragDistance is 15% height of the screen
+        dragDistanceH = Screen.height * 5 / 100; //dragDistance is 15% height of the screen
+        //dragDistanceD = Screen.width * 15 / 100; //dragDistance is 15% height of the screen
     }
 
     private void RunCharacter(float horizontalInput)
@@ -89,49 +100,106 @@ public class player_move : MonoBehaviour
             {
                 lp = touch.position;
 
-                if (Mathf.Abs(lp.x - fp.x) > dragDistanceD || Mathf.Abs(lp.y - fp.y) > dragDistanceH)
+                //if (Mathf.Abs(lp.x - fp.x) > dragDistanceH || Mathf.Abs(lp.y - fp.y) > dragDistanceH)
+                if (Mathf.Abs(lp.y - fp.y) > dragDistanceH)
                 {
-                    if (lp.x > fp.x)
+                    if (lp.x > fp.x && !shoots)
                     {
+                        shootTimer = 0f;
                         debugText.text += "right swipe\n";
                         Debug.Log("right swipe");
                         shoot.bulletfire();
                         shoot.fire = true;
+                        shoots = true;
                     }
                     else
                     {
-                        Debug.Log("left swipe");
-                        debugText.text += "left swipe\n";
-                    }
-                }
-                else if (Mathf.Abs(lp.y - fp.y) > dragDistanceH)
-                {
-                    if (lp.y > fp.y)
-                    {
-                        debugText.text += "up swipe\n";
-                        Debug.Log("up swipe");
-                    }
-                    else
-                    {
-                        slideTimer = 0f;
+                        tapTimer = 0f;
+                        tapping = true;
+                        if (!sliding)
+                        {
+                            slideTimer = 0f;
 
-                        anim.SetBool("isSliding", true);
-                        //gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
-                        healthCollider.GetComponent<CapsuleCollider2D>().enabled = false;
-                        sliding = true;
-                        debugText.text += "down swipe\n";
-                        Debug.Log("Down swipe");
-                        
+                            anim.SetTrigger("isSliding");
+                            print("Slide");
+                            gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
+                            healthCollider.GetComponent<CapsuleCollider2D>().enabled = false;
+                            sliding = true;
+                        }
+
+                        if (sliding)
+                        {
+                            slideTimer += Time.deltaTime;
+                            if (slideTimer > maxSlideTime)
+                            {
+                                sliding = false;
+                                gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+                                healthCollider.GetComponent<CapsuleCollider2D>().enabled = true;
+                            }
+                        }
                     }
                 }
+                //else if (Mathf.Abs(lp.y - fp.y) > dragDistanceH)
+                //{
+                //    if (lp.y > fp.y && !tapping)
+                //    {
+                //        tapTimer = 0f;
+                //        debugText.text += "up swipe\n";
+                //        Debug.Log("up swipe");
+                //        debugText.text += "tap\n";
+                //        Jump();
+                //        Debug.Log("jump");
+                //        tapping = true;
+                //    }
+                //    else
+                //    {
+                        
+
+                        
+                //    }
+                //}
             }
             else
             {
-                debugText.text += "tap\n";
-                Jump();
-                Debug.Log("jump");
+                if (!tapping)
+                {
+                    tapTimer = 0f;
+                    debugText.text += "tap\n";
+                    Jump();
+                    Debug.Log("jump");
+                    tapping = true;
+                }
+
             }
         }
+        if (tapping)
+        {
+            tapTimer += Time.deltaTime;
+            if (tapTimer > maxTaps)
+            {
+                tapping = false;
+                tapTimer = 0;
+                debugText.text += tapping;
+
+            }
+            //if (tapTimer>0.5f)
+            //{
+            //    tapTimer = 0;
+            //    //debugText.text += tapping;
+
+            //}
+        }
+        if (shoots)
+        {
+            shootTimer += Time.deltaTime;
+            if (shootTimer > maxShots)
+            {
+                shoots = false;
+                shootTimer = 0;
+
+            }
+        }
+
 
     }
     private void FixedUpdate()
@@ -205,6 +273,7 @@ public class player_move : MonoBehaviour
             timer = 10;
             player.SetActive(false);
             tank.SetActive(true);
+            tank.GetComponent<BoxCollider2D>().enabled = true ;
             Debug.Log("collide with player");
         }
 
@@ -236,6 +305,7 @@ public class player_move : MonoBehaviour
         {
             player.SetActive(true);
             tank.SetActive(false);
+            tank.GetComponent<BoxCollider2D>().enabled = false;
             Debug.Log("collide with player");
             Debug.Log(timer);
         }
