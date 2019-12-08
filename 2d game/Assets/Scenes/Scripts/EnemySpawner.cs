@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     //public GameObject mine;
     public GameObject enemies;
     //public GameObject slide_obstacle;
+    public GameObject Luftwaffe; 
     float randY;
     Vector2 whereToSpawn;
     public float spawnRate = 2f;
@@ -36,23 +37,26 @@ public class EnemySpawner : MonoBehaviour
             if (num == 0)
             {
                 whereToSpawn = new Vector2(player.transform.position.x + 5, transform.position.y);
-                Instantiate(enemy, whereToSpawn, Quaternion.identity);
+                Instantiate(enemy,  whereToSpawn, Quaternion.identity);
+            }
+
+            if(num == 0)
+            {
+                whereToSpawn = new Vector2(player.transform.position.x + 5, transform.position.y);
+                Instantiate(Luftwaffe, whereToSpawn, Quaternion.identity);
             }
         }
-
-
        
             if (enemies.transform.position.y <= -100)
             {
                 Destroy(GameObject.Find("Enemy(Clone)"), 5);
             }
         
-      
-
+ 
     }
     void Random_pos()
     {
-        num = (Random.Range(0, 2));
+        num = (Random.Range(0, 3));
         Debug.Log(num);
     }
     //void Random_pos1()
