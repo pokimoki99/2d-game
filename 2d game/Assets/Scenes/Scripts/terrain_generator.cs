@@ -50,10 +50,10 @@ public class terrain_generator : MonoBehaviour
         if (detecc.switched)
         {
             Random_pos();
-            if (Score.scoreValue > 0 && Score.scoreValue <= 50)
+
+            if (Score.scoreValue > 0 && Score.scoreValue <= 50 || easy==true)
             {
-                easy = true;
-                
+                medium = false;
                 if (num == 0)
                 {
                     whereToSpawn = new Vector2(player.transform.position.x + 9, Ground_big_easy.transform.position.y-3.5f);
@@ -89,9 +89,9 @@ public class terrain_generator : MonoBehaviour
 
 
             }
-            if (Score.scoreValue > 50 && Score.scoreValue <= 70)
+            if (Score.scoreValue > 50 || medium==true)
             {
-                medium = true;
+                easy = false;
                 Random_pos();
                 if (num == 0)
                 {

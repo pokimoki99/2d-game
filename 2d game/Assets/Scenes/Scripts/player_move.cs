@@ -222,7 +222,7 @@ public class player_move : MonoBehaviour
         if (other.gameObject.tag.Equals("mine"))
         {
             damage = true;
-            Destroy(this);
+            Destroy(GameObject.FindWithTag("mine"));
             Debug.Log("I GOT Mined");
         }
         if (other.gameObject.tag.Equals("enemy"))
