@@ -12,6 +12,8 @@ public class SceneLoad : MonoBehaviour
     }
     public void Exit()
     {
+        Debug.Log("Exit Button Pressed");
+
         Application.Quit();
     }
 
