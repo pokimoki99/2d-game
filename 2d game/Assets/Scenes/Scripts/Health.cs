@@ -48,11 +48,6 @@ public class Health : MonoBehaviour
             health = 0;
             //game over here
         }
-        if(GameOver==true)
-        {
-            //make this sprite/image apear with 
-            //go back to menu screen
-        }
        
 
     }

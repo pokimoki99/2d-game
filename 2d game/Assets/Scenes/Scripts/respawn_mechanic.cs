@@ -61,7 +61,7 @@ public class respawn_mechanic : MonoBehaviour
             Destroy(GameObject.Find("Luffwaffe"));
             _Health.health -= 1;
             CallHealthLoss();
-            _player_move.damage = false;
+            _player_move.damage = true;
         }
     }
 
