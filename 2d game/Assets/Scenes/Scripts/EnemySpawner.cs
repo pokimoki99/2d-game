@@ -52,17 +52,17 @@ public class EnemySpawner : MonoBehaviour
             {
                 Destroy(GameObject.Find("Enemy(Clone)"), 5);
             }
-            if (bomb.transform.position.y < -4.0f)
-            {
-                Destroy(GameObject.FindWithTag("enemy"));
-            }
+            //if (bomb.transform.position.y < -4.0f)
+            //{
+            //    Destroy(GameObject.FindWithTag("enemy"));
+            //}
         
  
     }
     void Random_pos()
     {
-        num = (Random.Range(0, 3));
-        num1 = (Random.Range(0, 3));
+        num = (Random.Range(0, 1));
+        num1 = (Random.Range(0, 1));
         Debug.Log(num);
     }
 }

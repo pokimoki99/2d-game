@@ -25,13 +25,13 @@ public class Inspirational_system : MonoBehaviour
             Random_pos();
             if (num == 1)
             {
-                inspiration.text = "For the MOTHERLAND!";
+                inspiration.text = "The Germans are Advancing";
                 QuoteTimer = 0;
                 inspire = false;
             }
             if (num == 2)
             {
-                inspiration.text = "In USSR, physics obey OUR LAWS!";
+                inspiration.text = "You cannot make a revolution"+"/n with White gloves";
                 QuoteTimer = 0;
                 inspire = false;
             }
@@ -43,40 +43,30 @@ public class Inspirational_system : MonoBehaviour
             }
             if (num == 4)
             {
-                inspiration.text = "If USSR falls, everything is lost" +
+                inspiration.text = "If The USSR falls, everything is lost" +
                     "/n KEEP GOING!";
                 QuoteTimer = 0;
                 inspire = false;
             }
             if (num == 5)
             {
-                inspiration.text = "Continue, or be sent to the GULAG";
+                inspiration.text = "The Russian people are" +
+                    "/n depending on you";
                 QuoteTimer = 0;
                 inspire = false;
             }
             if (num == 6)
             {
-                inspiration.text = "The Nazi`s are INFERIOR" +
-                    "/n USSR IS SUPERIOR";
+                inspiration.text = "Never allow Nazis" +
+                    "/n to march forward";
                 QuoteTimer = 0;
                 inspire = false;
             }
             if (num == 7)
             {
-                inspiration.text = "Nazi`s want to kill our women and children" +
+                inspiration.text = "Nazi`s have come to steal" +
+                    "/n our women and children" +
                     "/n ARE YOU GOING TO ALLOW THEM?!";
-                QuoteTimer = 0;
-                inspire = false;
-            }
-            if (num == 8)
-            {
-                inspiration.text = "Vodka";
-                QuoteTimer = 0;
-                inspire = false;
-            }
-            if (num == 9)
-            {
-                inspiration.text = "fkers";
                 QuoteTimer = 0;
                 inspire = false;
             }
@@ -89,7 +79,7 @@ public class Inspirational_system : MonoBehaviour
 
         if (QuoteTimer > maxQuoteTime)
         {
-            num = (Random.Range(0, 10));
+            num = (Random.Range(0, 8));
         }
     }
 }
