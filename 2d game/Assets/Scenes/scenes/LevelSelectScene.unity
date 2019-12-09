@@ -477,6 +477,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1175665950}
+          m_MethodName: DifficultySelect
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &635358797
@@ -793,6 +804,7 @@ GameObject:
   - component: {fileID: 885096359}
   - component: {fileID: 885096358}
   - component: {fileID: 885096357}
+  - component: {fileID: 885096360}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -902,6 +914,47 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885096355}
   m_CullTransparentMesh: 0
+--- !u!114 &885096360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885096355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1175665950}
+          m_MethodName: DifficultySelect
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 937383628}
+          m_MethodName: SceneLoader
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 5
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1001 &937383627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1180,6 +1233,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081831808}
   m_CullTransparentMesh: 0
+--- !u!1001 &1116963213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7638232359855586026, guid: 71d88d06af85a9842926d79846b571a3,
+        type: 3}
+      propertyPath: m_Name
+      value: DifficultyManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493289258561197788, guid: 71d88d06af85a9842926d79846b571a3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30.56183
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493289258561197788, guid: 71d88d06af85a9842926d79846b571a3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5648007
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493289258561197788, guid: 71d88d06af85a9842926d79846b571a3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493289258561197788, guid: 71d88d06af85a9842926d79846b571a3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493289258561197788, guid: 71d88d06af85a9842926d79846b571a3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493289258561197788, guid: 71d88d06af85a9842926d79846b571a3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493289258561197788, guid: 71d88d06af85a9842926d79846b571a3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493289258561197788, guid: 71d88d06af85a9842926d79846b571a3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493289258561197788, guid: 71d88d06af85a9842926d79846b571a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493289258561197788, guid: 71d88d06af85a9842926d79846b571a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493289258561197788, guid: 71d88d06af85a9842926d79846b571a3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 71d88d06af85a9842926d79846b571a3, type: 3}
+--- !u!114 &1175665950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7819025593808638799, guid: 71d88d06af85a9842926d79846b571a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1116963213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b3b8a042110cc4281d4dc57b92f761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1525146150
 GameObject:
   m_ObjectHideFlags: 0
