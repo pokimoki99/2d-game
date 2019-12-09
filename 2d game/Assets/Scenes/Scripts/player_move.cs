@@ -99,6 +99,8 @@ public class player_move : MonoBehaviour
             else if (touch.phase == TouchPhase.Ended)
             {
                 lp = touch.position;
+                //tapping = true;
+                tapping = false;
 
                 //if (Mathf.Abs(lp.x - fp.x) > dragDistanceH || Mathf.Abs(lp.y - fp.y) > dragDistanceH)
                 if (Mathf.Abs(lp.y - fp.y) > dragDistanceH)
