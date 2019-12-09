@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     public Sprite fullHearts;
     public Sprite emptyHearts;
     public respawn_mechanic respawn_Mechanic;
+    public bool GameOver = false;
 
 
     // Start is called before the first frame update
@@ -41,6 +42,16 @@ public class Health : MonoBehaviour
         if (health > numOfHearts)
         {
             health = numOfHearts;
+        }
+        if(health <= 0)
+        {
+            health = 0;
+            //game over here
+        }
+        if(GameOver==true)
+        {
+            //make this sprite/image apear with 
+            //go back to menu screen
         }
        
 
