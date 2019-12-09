@@ -11,32 +11,18 @@ public class player_move : MonoBehaviour
     public int PlayerJumpPower = 1250;
     private float moveX;
 
-
-    public bool damage = false;
-    public bool heal = false;
-    public bool bol = true;
-
-    //objects
-    private Rigidbody2D characterBody;
-    private float ScreenWidth;
-    public GameObject player;
-    public GameObject tank;
-    public Text debugText;
-
-    Health hp;
-    Score point;
-
     //touch mechanic
     private Vector2 fp;
     private Vector2 lp;
     private float dragDistanceH;
-    //private float dragDistanceD;
     float timer = 30.0f;
-    //sliding mechanic
+
+    //tap mechanic
     bool tapping = false;
     float tapTimer = 0f;
     public float maxTaps = 4.0f;
 
+    //shooting mechanic
     bool shoots = false;
     float shootTimer = 0f;
     public float maxShots = 1.0f;
@@ -49,6 +35,22 @@ public class player_move : MonoBehaviour
     //shooting
     Shooting shoot;
 
+
+    public bool damage = false;
+    public bool heal = false;
+    public bool bol = true;
+
+    //objects
+    private Rigidbody2D characterBody;
+    public GameObject player;
+    public GameObject tank;
+    public Text debugText;
+
+    Health hp;
+    Score point;
+
+   
+
     public GameObject healthCollider;
 
     [SerializeField]
@@ -59,18 +61,15 @@ public class player_move : MonoBehaviour
 
     void Start()
     {
-        ScreenWidth = Screen.width;
         characterBody = GetComponent<Rigidbody2D>();
         tank.SetActive(false);
-        dragDistanceH = Screen.height * 5 / 100; //dragDistance is 15% height of the screen
-        //dragDistanceD = Screen.width * 15 / 100; //dragDistance is 15% height of the screen
+        dragDistanceH = Screen.height * 5 / 100; //dragDistance is 5% height of the screen
     }
 
     private void RunCharacter(float horizontalInput)
     {
         //move player mobile
         characterBody.AddForce(new Vector2(horizontalInput * playerSpeed * Time.deltaTime, 0));
-        //Debug.Log("running");
     }
 
     public void MovePlayer(float moveAmount)
@@ -99,10 +98,8 @@ public class player_move : MonoBehaviour
             else if (touch.phase == TouchPhase.Ended)
             {
                 lp = touch.position;
-                //tapping = true;
                 tapping = false;
 
-                //if (Mathf.Abs(lp.x - fp.x) > dragDistanceH || Mathf.Abs(lp.y - fp.y) > dragDistanceH)
                 if (Mathf.Abs(lp.y - fp.y) > dragDistanceH)
                 {
                     if (lp.x > fp.x && !shoots)
@@ -116,8 +113,6 @@ public class player_move : MonoBehaviour
                     }
                     else
                     {
-                        //tapTimer = 0f;
-                        //tapping = true;
                         if (!sliding)
                         {
                             slideTimer = 0f;
@@ -141,30 +136,12 @@ public class player_move : MonoBehaviour
                         }
                     }
                 }
-                else if (Mathf.Abs(lp.y - fp.y) > dragDistanceH)
-                {
-                    if (lp.y > fp.y && !tapping)
-                    {
-                        tapTimer = 0f;
-                        //debugText.text += "tap\n";
-                        Jump();
-                        Debug.Log("jump");
-                        tapping = true;
-                    }
-                    else
-                    {
-
-
-
-                    }
-                }
             }
             else
             {
                 if (!tapping)
                 {
                     tapTimer = 0f;
-                    //debugText.text += "tap\n";
                     Jump();
                     Debug.Log("jump");
                     tapping = true;
@@ -182,12 +159,6 @@ public class player_move : MonoBehaviour
                 debugText.text += tapping;
 
             }
-            //if (tapTimer>0.5f)
-            //{
-            //    tapTimer = 0;
-            //    //debugText.text += tapping;
-
-            //}
         }
         if (shoots)
         {
@@ -226,7 +197,6 @@ public class player_move : MonoBehaviour
 
             anim.SetTrigger("isSliding");
             print("Slide");
-            //gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
             healthCollider.GetComponent<CapsuleCollider2D>().enabled = false;
             sliding = true;
         }
@@ -236,7 +206,6 @@ public class player_move : MonoBehaviour
             if (slideTimer>maxSlideTime)
             {
                 sliding = false;
-                //gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
                 healthCollider.GetComponent<CapsuleCollider2D>().enabled = true;
             }
         }
@@ -249,15 +218,6 @@ public class player_move : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * PlayerJumpPower);
 
     }
-
-    void FlipPlayer()
-    {
-        facingRight = !facingRight;
-        Vector2 localScale = gameObject.transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
        
@@ -274,13 +234,19 @@ public class player_move : MonoBehaviour
         if (other.gameObject.tag.Equals("mine"))
         {
             damage = true;
-            Destroy(GameObject.Find("Mine(Clone)"));
-            Debug.Log("I GOT DAMAGED");
+            Destroy(this);
+            Debug.Log("I GOT Mined");
         }
         if (other.gameObject.tag.Equals("enemy"))
         {
             damage = true;
-            Destroy(GameObject.Find("enemy(Clone)"));
+            Destroy(GameObject.FindWithTag("enemy"));
+            Debug.Log("I GOT DAMAGED");
+        }
+        if (other== GameObject.FindWithTag("enemy"))
+        {
+            damage = true;
+            Destroy(GameObject.FindWithTag("enemy"));
             Debug.Log("I GOT DAMAGED");
         }
 

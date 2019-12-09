@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    void OnCollionEnter(Collision2D col)
+    void OnCollionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag.Equals("Bullet"))
         {
