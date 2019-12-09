@@ -17,12 +17,14 @@ public class terrain_generator : MonoBehaviour
     public GameObject player;
 
     public Detecc detecc;
+    public power_up _tank;
     //public Score scoreValue;
 
     public bool easy, medium, hard;
     Vector2 whereToSpawn;
     int num;
     int hp;
+    int tank;
 
     // Start is called before the first frame update
     void Start()
@@ -79,6 +81,11 @@ public class terrain_generator : MonoBehaviour
                     whereToSpawn = new Vector2(player.transform.position.x + 14, hp_power_up.transform.position.y);
                     Instantiate(hp_power_up, whereToSpawn, Quaternion.identity);
                 }
+                if (tank == 0)
+                {
+                    whereToSpawn = new Vector2(player.transform.position.x + 14, _tank.tank_power_up.transform.position.y);
+                    Instantiate(_tank.tank_power_up, whereToSpawn, Quaternion.identity);
+                }
 
 
             }
@@ -117,6 +124,7 @@ public class terrain_generator : MonoBehaviour
     {
         num = (Random.Range(0, 3));
         hp = (Random.Range(0, 2));
+        tank = (Random.Range(0, 10));
         Debug.Log(num);
     }
 }
