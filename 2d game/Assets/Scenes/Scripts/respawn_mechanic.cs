@@ -56,7 +56,13 @@ public class respawn_mechanic : MonoBehaviour
             }
             
         }
-
+        if (_player_move.damage == true)
+        {
+            Destroy(GameObject.Find("Luffwaffe"));
+            _Health.health -= 1;
+            CallHealthLoss();
+            _player_move.damage = false;
+        }
     }
 
     void CallHealthLoss()
@@ -70,6 +76,7 @@ public class respawn_mechanic : MonoBehaviour
     void destroyTerrain()
     {
         Destroy(GameObject.Find("Enemy(Clone)"));
+        Destroy(GameObject.Find("Luffewaffe"));
         Destroy(GameObject.Find("slide_obstacles(Clone)"));
         GameObject[] gos = GameObject.FindGameObjectsWithTag("terrain");
         foreach (GameObject go in gos)
