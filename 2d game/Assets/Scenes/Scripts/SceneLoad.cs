@@ -8,7 +8,13 @@ public class SceneLoad : MonoBehaviour
     public void SceneLoader(int SceneIndex)
     {
         SceneManager.LoadScene(SceneIndex);
+        
     }
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
 
 
 }
