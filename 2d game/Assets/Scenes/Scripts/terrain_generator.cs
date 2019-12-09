@@ -97,16 +97,19 @@ public class terrain_generator : MonoBehaviour
                 {
                     whereToSpawn = new Vector2(player.transform.position.x - 9, Ground_big_medium.transform.position.y- 3.5f);
                     Instantiate(Ground_big_medium, whereToSpawn, Quaternion.identity);
+                    detecc.switched = false;
                 }
                 if (num == 1)
                 {
                     whereToSpawn = new Vector2(player.transform.position.x - 9, Ground_big2_medium.transform.position.y- 3.5f);
                     Instantiate(Ground_big2_medium, whereToSpawn, Quaternion.identity);
+                    detecc.switched = false;
                 }
                 if (num == 2)
                 {
                     whereToSpawn = new Vector2(player.transform.position.x - 14, Ground_small_medium.transform.position.y- 3.3f);
                     Instantiate(Ground_small_medium, whereToSpawn, Quaternion.identity);
+                    detecc.switched = false;
                 }
             }
 

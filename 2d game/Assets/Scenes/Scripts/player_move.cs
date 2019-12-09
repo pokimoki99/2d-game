@@ -114,8 +114,8 @@ public class player_move : MonoBehaviour
                     }
                     else
                     {
-                        tapTimer = 0f;
-                        tapping = true;
+                        //tapTimer = 0f;
+                        //tapping = true;
                         if (!sliding)
                         {
                             slideTimer = 0f;
@@ -139,32 +139,30 @@ public class player_move : MonoBehaviour
                         }
                     }
                 }
-                //else if (Mathf.Abs(lp.y - fp.y) > dragDistanceH)
-                //{
-                //    if (lp.y > fp.y && !tapping)
-                //    {
-                //        tapTimer = 0f;
-                //        debugText.text += "up swipe\n";
-                //        Debug.Log("up swipe");
-                //        debugText.text += "tap\n";
-                //        Jump();
-                //        Debug.Log("jump");
-                //        tapping = true;
-                //    }
-                //    else
-                //    {
-                        
+                else if (Mathf.Abs(lp.y - fp.y) > dragDistanceH)
+                {
+                    if (lp.y > fp.y && !tapping)
+                    {
+                        tapTimer = 0f;
+                        //debugText.text += "tap\n";
+                        Jump();
+                        Debug.Log("jump");
+                        tapping = true;
+                    }
+                    else
+                    {
 
-                        
-                //    }
-                //}
+
+
+                    }
+                }
             }
             else
             {
                 if (!tapping)
                 {
                     tapTimer = 0f;
-                    debugText.text += "tap\n";
+                    //debugText.text += "tap\n";
                     Jump();
                     Debug.Log("jump");
                     tapping = true;
@@ -260,22 +258,6 @@ public class player_move : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //if (other.gameObject.name.Equals("Detecc"))
-        //{
-        //    Debug.Log(bol);
-        //    if (bol)
-        //    {
-        //        switched = true;
-        //        GameObject.FindWithTag("Respawn").GetComponent<BoxCollider2D>().enabled = false;
-        //        bol = false;
-        //    }
-        //    if (!bol)
-        //    {
-        //        //switched = true;
-        //        GameObject.FindWithTag("Respawn").GetComponent<BoxCollider2D>().enabled = true;
-        //    }
-        //    Debug.Log("I AM SWITCHED");
-        //}
        
         if (other.gameObject.name.Equals("Tank_power_up"))
         {
@@ -303,7 +285,7 @@ public class player_move : MonoBehaviour
         if (other.gameObject.tag.Equals("HP_powerup"))
         {
             heal = true;
-            Destroy(GameObject.Find("life"));
+            Destroy(GameObject.FindWithTag("HP_powerup"));
             Debug.Log("I GOT healed");
         }
     }
