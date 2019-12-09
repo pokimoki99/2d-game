@@ -11,10 +11,10 @@ public class player_move : MonoBehaviour
     public int PlayerJumpPower = 1250;
     private float moveX;
 
-    //switches
-    public bool switched = false;
+
     public bool damage = false;
     public bool heal = false;
+    public bool bol = true;
 
     //objects
     private Rigidbody2D characterBody;
@@ -260,14 +260,23 @@ public class player_move : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name.Equals("Detecc"))
-        {
-            switched = true;
-            GameObject.FindWithTag("Respawn").GetComponent<BoxCollider2D>().enabled = true;
-
-
-            Debug.Log("I AM SWITCHED");
-        }
+        //if (other.gameObject.name.Equals("Detecc"))
+        //{
+        //    Debug.Log(bol);
+        //    if (bol)
+        //    {
+        //        switched = true;
+        //        GameObject.FindWithTag("Respawn").GetComponent<BoxCollider2D>().enabled = false;
+        //        bol = false;
+        //    }
+        //    if (!bol)
+        //    {
+        //        //switched = true;
+        //        GameObject.FindWithTag("Respawn").GetComponent<BoxCollider2D>().enabled = true;
+        //    }
+        //    Debug.Log("I AM SWITCHED");
+        //}
+       
         if (other.gameObject.name.Equals("Tank_power_up"))
         {
             timer = 10;
@@ -311,7 +320,7 @@ public class player_move : MonoBehaviour
         }
         if (other.gameObject.name.Equals("Detecc"))
         {
-            GameObject.FindWithTag("Respawn").GetComponent<BoxCollider2D>().enabled = true;
+            GameObject.FindWithTag("Respawn").GetComponent<BoxCollider2D>().enabled = false;
         }
 
 

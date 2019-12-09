@@ -16,7 +16,7 @@ public class terrain_generator : MonoBehaviour
     public GameObject detection;
     public GameObject player;
 
-    public player_move _player_move;
+    public Detecc detecc;
     //public Score scoreValue;
 
     public bool easy, medium, hard;
@@ -45,28 +45,34 @@ public class terrain_generator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_player_move.switched)
+        if (detecc.switched)
         {
-
+            Random_pos();
             if (Score.scoreValue > 0 && Score.scoreValue <= 50)
             {
                 easy = true;
-                Random_pos();
+                
                 if (num == 0)
                 {
                     whereToSpawn = new Vector2(player.transform.position.x + 9, Ground_big_easy.transform.position.y-3.5f);
                     Instantiate(Ground_big_easy, whereToSpawn, Quaternion.identity);
+                    detecc.switched = false;
+                    Debug.Log("spawned0");
+
                 }
-                if (num == 1)
+                else if (num == 1)
                 {
                     whereToSpawn = new Vector2(player.transform.position.x + 9, Ground_big2_easy.transform.position.y- 3.5f);
                     Instantiate(Ground_big2_easy, whereToSpawn, Quaternion.identity);
+                    detecc.switched = false;
+                    Debug.Log("spawned1");
                 }
-                if (num == 2)
+                else if (num == 2)
                 {
-
-                    whereToSpawn = new Vector2(player.transform.position.x + 14, Ground_small_easy.transform.position.y- 3.5f);
+                    whereToSpawn = new Vector2(player.transform.position.x + 3, Ground_small_easy.transform.position.y- 3.5f);
                     Instantiate(Ground_small_easy, whereToSpawn, Quaternion.identity);
+                    detecc.switched = false;
+                    Debug.Log("spawned2");
                 }
                 if (hp==0)
                 {
@@ -98,7 +104,7 @@ public class terrain_generator : MonoBehaviour
             }
 
             Debug.Log("new platform");
-            _player_move.switched = false;
+            detecc.switched = false;
         }
 
 
