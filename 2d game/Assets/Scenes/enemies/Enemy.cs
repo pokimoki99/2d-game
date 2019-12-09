@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float enemyspeed = 5f;
+    public float enemyspeed = 2f;
     public GameObject enemy;
     //public GameObject detecc;
   //  Vector3 spawn;
