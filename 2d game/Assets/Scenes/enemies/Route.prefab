@@ -41,9 +41,9 @@ GameObject:
   - component: {fileID: 6679983619304603887}
   - component: {fileID: 5471144384089825245}
   - component: {fileID: 2496025937263257241}
-  - component: {fileID: 3679225693842093088}
   - component: {fileID: 8778442655063337237}
   - component: {fileID: 8816778177000780646}
+  - component: {fileID: 851506633}
   m_Layer: 0
   m_Name: Luftwaffe
   m_TagString: Luftwaffe
@@ -139,27 +139,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2, y: 0.7}
   m_EdgeRadius: 0
---- !u!50 &3679225693842093088
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070690919634743167}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 10
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &8778442655063337237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +170,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   routes:
   - {fileID: 7262518016378493068}
+--- !u!95 &851506633
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070690919634743167}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92138f9e16854a0458acee5167a8ac5e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1183633487372222427
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 1745205653752829799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 107.26022, y: 4.3956046, z: 1}
   m_Children:
   - {fileID: 1591085506930510669}
   - {fileID: 5482995043211145181}

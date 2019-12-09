@@ -6,12 +6,11 @@ public class bombspawn : MonoBehaviour
 {
 
     public GameObject bomb;
-    //public GameObject bombs;
+    public GameObject plane;
 
     Vector2 WhereToSpawn;
-    public float fireRate = 0.1f;
-    private float nextFire = 0.0f;
-    //public bool land;
+
+    bool fire = true;
 
 
     void Start()
@@ -26,6 +25,16 @@ public class bombspawn : MonoBehaviour
     void Update()
     {
 
+        if (plane.transform.position.y <= 0.6f)
+        {
+            Debug.Log("coords");
+            if (!fire)
+            {
+                WhereToSpawn = new Vector2(plane.transform.position.x, plane.transform.position.y);
+                Instantiate(bomb, WhereToSpawn, Quaternion.identity);
+                fire = false;
+            }
+        }
 
 
 

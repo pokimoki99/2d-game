@@ -22,19 +22,11 @@ public class player_move : MonoBehaviour
     float tapTimer = 0f;
     public float maxTaps = 4.0f;
 
-    //shooting mechanic
-    bool shoots = false;
-    float shootTimer = 0f;
-    public float maxShots = 1.0f;
 
     //sliding mechanic
     bool sliding = false;
     float slideTimer = 0f;
     public float maxSlideTime = 1.0f;
-
-    //shooting
-    Shooting shoot;
-
 
     public bool damage = false;
     public bool heal = false;
@@ -49,7 +41,8 @@ public class player_move : MonoBehaviour
     Health hp;
     Score point;
 
-   
+    Object BulletRef;
+    public bool fire = false;
 
     public GameObject healthCollider;
 
@@ -63,7 +56,8 @@ public class player_move : MonoBehaviour
     {
         characterBody = GetComponent<Rigidbody2D>();
         tank.SetActive(false);
-        dragDistanceH = Screen.height * 5 / 100; //dragDistance is 5% height of the screen
+        dragDistanceH = Screen.height * 15 / 100; //dragDistance is 5% height of the screen
+        BulletRef = Resources.Load("Bullet");
     }
 
     private void RunCharacter(float horizontalInput)
@@ -102,14 +96,11 @@ public class player_move : MonoBehaviour
 
                 if (Mathf.Abs(lp.y - fp.y) > dragDistanceH)
                 {
-                    if (lp.x > fp.x && !shoots)
+                    if (lp.x > fp.x)
                     {
-                        shootTimer = 0f;
                         debugText.text += "right swipe\n";
                         Debug.Log("right swipe");
-                        shoot.bulletfire();
-                        shoot.fire = true;
-                        shoots = true;
+                        bulletfire();
                     }
                     else
                     {
@@ -145,6 +136,7 @@ public class player_move : MonoBehaviour
                     Jump();
                     Debug.Log("jump");
                     tapping = true;
+                   
                 }
 
             }
@@ -156,17 +148,6 @@ public class player_move : MonoBehaviour
             {
                 tapping = false;
                 tapTimer = 0;
-                debugText.text += tapping;
-
-            }
-        }
-        if (shoots)
-        {
-            shootTimer += Time.deltaTime;
-            if (shootTimer > maxShots)
-            {
-                shoots = false;
-                shootTimer = 0;
 
             }
         }
@@ -218,6 +199,13 @@ public class player_move : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * PlayerJumpPower);
 
     }
+    public void bulletfire()
+    {
+        GameObject bullet = (GameObject)Instantiate(BulletRef);
+        bullet.transform.position = new Vector3(transform.position.x + .4f, transform.position.y + .2f, -1f);
+        fire = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
        
