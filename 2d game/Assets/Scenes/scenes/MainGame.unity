@@ -1051,6 +1051,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire: 0
+--- !u!114 &929270712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929270707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c408b1ab7629b74cb11ae974a366cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switched: 0
+  pass: 0
 --- !u!70 &929270713
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1589,7 +1603,8 @@ MonoBehaviour:
     type: 3}
   detection: {fileID: 871497010}
   player: {fileID: 929270707}
-  _player_move: {fileID: 929270708}
+  detecc: {fileID: 929270712}
+  _tank: {fileID: 534444367}
   easy: 0
   medium: 0
   hard: 0
