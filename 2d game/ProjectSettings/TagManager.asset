@@ -12,6 +12,8 @@ TagManager:
   - mine
   - Bullet
   - HP_powerup
+  - Luftwaffe
+  - Volume
   layers:
   - Default
   - TransparentFX
