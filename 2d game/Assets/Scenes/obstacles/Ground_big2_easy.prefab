@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8637059188848570204}
   m_Layer: 0
   m_Name: Ground_big2_easy
-  m_TagString: Untagged
+  m_TagString: terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
