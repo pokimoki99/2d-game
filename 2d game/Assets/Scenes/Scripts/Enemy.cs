@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemy = GameObject.FindGameObjectWithTag("enemy");
+        //enemy = GameObject.FindGameObjectWithTag("enemy");
     }
 
     // Update is called once per frame

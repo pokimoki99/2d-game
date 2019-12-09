@@ -1,10 +1,12 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
     public static int scoreValue = 0;
+    public int savedata;
     public Text scoreText;
     private float startTime;
     public Inspirational_system inspiration;
@@ -19,6 +21,7 @@ public class Score : MonoBehaviour
     void Update()
     {
         scoreValue = (int)(Time.time - startTime);
+        savedata = scoreValue;
 
         scoreText.text = "Score : " + scoreValue;
         if (scoreValue==5 || scoreValue== 10 || scoreValue == 15 || scoreValue == 20 || scoreValue == 25 || scoreValue == 30 || scoreValue == 35 || scoreValue == 40
@@ -28,4 +31,5 @@ public class Score : MonoBehaviour
         }
 
     }
+    
 }

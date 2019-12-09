@@ -5,11 +5,8 @@ using UnityEngine;
 
 public class respawn_mechanic : MonoBehaviour
 {
-    public GameObject detecc;//but also attack
-    public GameObject player;
+    GameObject player;
     Vector3 spawn;
-
-    public terrain_generator _terrain_generator;
     public player_move _player_move;
 
     public Health _Health;
@@ -20,7 +17,6 @@ public class respawn_mechanic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        detecc = GameObject.FindGameObjectWithTag("Respawn");
         player = GameObject.FindGameObjectWithTag("player");
         spawn = player.transform.position;
     }
@@ -28,7 +24,6 @@ public class respawn_mechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //GetComponent("Health.cs");
         if (player.transform.position.y < -6)
         {
             destroyTerrain();
@@ -74,9 +69,6 @@ public class respawn_mechanic : MonoBehaviour
     }
     void destroyTerrain()
     {
-        Destroy(GameObject.Find("Ground_big(Clone)"));
-        Destroy(GameObject.Find("Ground_big2(Clone)"));
-        Destroy(GameObject.Find("Ground_small(Clone)"));
         Destroy(GameObject.Find("Enemy(Clone)"));
         Destroy(GameObject.Find("slide_obstacles(Clone)"));
         Destroy(GameObject.FindWithTag("terrain"));

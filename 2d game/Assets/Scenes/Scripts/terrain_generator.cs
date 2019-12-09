@@ -12,18 +12,24 @@ public class terrain_generator : MonoBehaviour
     public GameObject Ground_big_medium;
     public GameObject Ground_big2_medium;
     public GameObject Ground_small_medium;
+    public GameObject hp_power_up;
     public GameObject detection;
     public GameObject player;
 
     public player_move _player_move;
     //public Score scoreValue;
 
+    public bool easy, medium, hard;
     Vector2 whereToSpawn;
     int num;
+    int hp;
 
     // Start is called before the first frame update
     void Start()
     {
+        easy = false;
+        medium = false;
+        hard = false;
         if (Score.scoreValue == 0)
         {
             whereToSpawn = new Vector3(0.4f, -5.32f, 16.54f);
@@ -41,43 +47,52 @@ public class terrain_generator : MonoBehaviour
     {
         if (_player_move.switched)
         {
+
             if (Score.scoreValue > 0 && Score.scoreValue <= 50)
             {
+                easy = true;
                 Random_pos();
                 if (num == 0)
                 {
-                    whereToSpawn = new Vector2(player.transform.position.x - 9, Ground_big_easy.transform.position.y);
+                    whereToSpawn = new Vector2(player.transform.position.x + 9, Ground_big_easy.transform.position.y-3.5f);
                     Instantiate(Ground_big_easy, whereToSpawn, Quaternion.identity);
                 }
                 if (num == 1)
                 {
-                    whereToSpawn = new Vector2(player.transform.position.x - 9, Ground_big2_easy.transform.position.y);
+                    whereToSpawn = new Vector2(player.transform.position.x + 9, Ground_big2_easy.transform.position.y- 3.5f);
                     Instantiate(Ground_big2_easy, whereToSpawn, Quaternion.identity);
                 }
                 if (num == 2)
                 {
 
-                    whereToSpawn = new Vector2(player.transform.position.x - 14, Ground_small_easy.transform.position.y);
+                    whereToSpawn = new Vector2(player.transform.position.x + 14, Ground_small_easy.transform.position.y- 3.5f);
                     Instantiate(Ground_small_easy, whereToSpawn, Quaternion.identity);
                 }
+                if (hp==0)
+                {
+                    whereToSpawn = new Vector2(player.transform.position.x + 14, hp_power_up.transform.position.y);
+                    Instantiate(hp_power_up, whereToSpawn, Quaternion.identity);
+                }
+
+
             }
             if (Score.scoreValue > 50 && Score.scoreValue <= 70)
             {
+                medium = true;
                 Random_pos();
                 if (num == 0)
                 {
-                    whereToSpawn = new Vector2(player.transform.position.x - 9, Ground_big_medium.transform.position.y);
+                    whereToSpawn = new Vector2(player.transform.position.x - 9, Ground_big_medium.transform.position.y- 3.5f);
                     Instantiate(Ground_big_medium, whereToSpawn, Quaternion.identity);
                 }
                 if (num == 1)
                 {
-                    whereToSpawn = new Vector2(player.transform.position.x - 9, Ground_big2_medium.transform.position.y);
+                    whereToSpawn = new Vector2(player.transform.position.x - 9, Ground_big2_medium.transform.position.y- 3.5f);
                     Instantiate(Ground_big2_medium, whereToSpawn, Quaternion.identity);
                 }
                 if (num == 2)
                 {
-
-                    whereToSpawn = new Vector2(player.transform.position.x - 14, Ground_small_medium.transform.position.y);
+                    whereToSpawn = new Vector2(player.transform.position.x - 14, Ground_small_medium.transform.position.y- 3.3f);
                     Instantiate(Ground_small_medium, whereToSpawn, Quaternion.identity);
                 }
             }
@@ -95,6 +110,7 @@ public class terrain_generator : MonoBehaviour
     void Random_pos()
     {
         num = (Random.Range(0, 3));
+        hp = (Random.Range(0, 2));
         Debug.Log(num);
     }
 }
