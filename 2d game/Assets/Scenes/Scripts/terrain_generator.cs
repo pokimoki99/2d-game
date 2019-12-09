@@ -120,6 +120,11 @@ public class terrain_generator : MonoBehaviour
 
     }
 
+    public void spawn()
+    {
+        whereToSpawn = new Vector3(0.4f, -5.32f, 16.54f);
+        Instantiate(Ground_big_easy, whereToSpawn, Quaternion.identity);
+    }
     void Random_pos()
     {
         num = (Random.Range(0, 3));

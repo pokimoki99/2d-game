@@ -8,6 +8,7 @@ public class respawn_mechanic : MonoBehaviour
     GameObject player;
     Vector3 spawn;
     public player_move _player_move;
+    public terrain_generator _terrain;
 
     public Health _Health;
 
@@ -71,6 +72,9 @@ public class respawn_mechanic : MonoBehaviour
     {
         Destroy(GameObject.Find("Enemy(Clone)"));
         Destroy(GameObject.Find("slide_obstacles(Clone)"));
-        Destroy(GameObject.FindWithTag("terrain"));
+        GameObject[] gos = GameObject.FindGameObjectsWithTag("terrain");
+        foreach (GameObject go in gos)
+            Destroy(go);
+        _terrain.spawn();
     }
 }
