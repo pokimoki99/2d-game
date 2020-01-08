@@ -552,6 +552,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &564423082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5065090680143865158, guid: 2f113e388bef9704d8f7586682872d88,
+    type: 3}
+  m_PrefabInstance: {fileID: 1445645482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e069c969826f9c3419462ece7f1def3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &649107859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,7 +1394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.10849059, g: 0.7820303, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1619,7 +1631,7 @@ MonoBehaviour:
   detection: {fileID: 871497010}
   player: {fileID: 929270707}
   detecc: {fileID: 929270712}
-  _tank: {fileID: 0}
+  _tank: {fileID: 534444367, guid: 1c8d94cbb894f5443a37ddab5b2dcd70, type: 3}
   easy: 0
   medium: 0
   hard: 0
@@ -2568,6 +2580,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ad6c6373a7035ee499785adc1c174af3,
         type: 3}
+    - target: {fileID: 2551331087444905444, guid: e754fb2ee74074e449811c6c2d5bc7ec,
+        type: 3}
+      propertyPath: load
+      value: 
+      objectReference: {fileID: 564423082}
     - target: {fileID: 2816001407438989769, guid: e754fb2ee74074e449811c6c2d5bc7ec,
         type: 3}
       propertyPath: healthCollider

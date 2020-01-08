@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public int health;
     public int numOfHearts;
 
+    public SceneLoad load;
     public Sprite[] hearts;
     public Image healthHeart;
     public Sprite fullHearts;
@@ -45,8 +46,7 @@ public class Health : MonoBehaviour
         }
         if(health <= 0)
         {
-           //health = 0;
-            //game over here
+            load.SceneLoader(1);
         }
        
 

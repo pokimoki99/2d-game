@@ -44,29 +44,29 @@ public class Inspirational_system : MonoBehaviour
             if (num == 4)
             {
                 inspiration.text = "If The USSR falls, everything is lost" +
-                    "/n KEEP GOING!";
+                    "\n KEEP GOING!";
                 QuoteTimer = 0;
                 inspire = false;
             }
             if (num == 5)
             {
                 inspiration.text = "The Russian people are" +
-                    "/n depending on you";
+                    "\n depending on you";
                 QuoteTimer = 0;
                 inspire = false;
             }
             if (num == 6)
             {
                 inspiration.text = "Never allow Nazis" +
-                    "/n to march forward";
+                    "\n to march forward";
                 QuoteTimer = 0;
                 inspire = false;
             }
             if (num == 7)
             {
                 inspiration.text = "Nazi`s have come to steal" +
-                    "/n our women and children" +
-                    "/n ARE YOU GOING TO ALLOW THEM?!";
+                    "\n our women and children" +
+                    "\n ARE YOU GOING TO ALLOW THEM?!";
                 QuoteTimer = 0;
                 inspire = false;
             }

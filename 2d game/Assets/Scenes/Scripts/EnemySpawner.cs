@@ -45,6 +45,9 @@ public class EnemySpawner : MonoBehaviour
             {
                 whereToSpawn = new Vector2(player.transform.position.x + 3, transform.position.y+5);
                 Instantiate(bomb, whereToSpawn, Quaternion.identity);
+
+                whereToSpawn = new Vector2(player.transform.position.x, transform.position.y+5);
+                Instantiate(bomb, whereToSpawn, Quaternion.identity);
             }
         }
        
